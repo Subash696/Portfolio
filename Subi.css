@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #b3da06e7;
+    transition: opacity 0.5s ease;
+    background-size: cover;
+    background-position: center; /* Centers the background image */
+    position: relative;
+    overflow: hidden; /* Prevents overflow due to animations */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    margin: 20px 0;
+}
+
+button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden; /* Needed for the ripple effect */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.4);
+    width: 300%;
+    height: 300%;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+button:hover {
+    background-color: #8e24aa;
+    transform: scale(1.05);
+}
+
+main {
+    text-align: center;
+    margin: 40px;
+    animation: fadeIn 1s ease-in;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideIn 1s forwards ease-in;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(74, 20, 140, 0.9);
+    color: white;
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.project-card {
+    background: rgba(2, 198, 247, 0.8); /* Semi-transparent white */
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Page-specific background images */
+.home {
+    background-image: url('1.jpg'); /* Update the path accordingly */
+}
+
+.About {
+    background-image: url('3.jpg'); /* Update the path accordingly */
+}
+
+.projects {
+    background-image: url('2.jpg'); /* Update the path accordingly */
+}
+
+.contact {
+    background-image: url('5.jpg'); /* Update the path accordingly */
+}
+.Certificates {
+    background-image: url('4.jpg'); /* Update the path accordingly */
+}
